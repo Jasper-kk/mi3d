@@ -82,19 +82,40 @@
           </div>
           -->
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- Arxiv PDF link -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-            </div>
+          <!-- 所有按钮区域 -->
+          <div class="publication-links is-flex is-justify-content-center is-flex-wrap-wrap mt-4">
+            <!-- ArXiv Paper PDF -->
+            <span class="link-block m-2">
+              <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+
+            <!-- Supplementary PDF -->
+            <span class="link-block m-2">
+              <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Supplementary</span>
+              </a>
+            </span>
+
+            <!-- ArXiv Abstract -->
+            <span class="link-block m-2">
+              <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
           </div>
 
         </div>
@@ -103,36 +124,6 @@
   </div>
 </section>
 
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
@@ -183,7 +174,7 @@ We believe that MI3D will advance 3D vision research.
         <div class="columns is-centered">
             <div class="column is-full">
                 <div class="content">
-                    <h2 class="title is-3">Pipline</h2>
+                    <h2 id="pipeline" class="title is-3">Pipline</h2>
                     <div class="level-set has-text-justified">
                         <p>
                         <p>
@@ -233,7 +224,7 @@ We believe that MI3D will advance 3D vision research.
 
 <section class="section" id="3d-visualization">
   <div class="container">
-    <h2 class="title is-3">3D-visualization</h2>
+    <h2 id="3d-visualization" class="title is-3">3D-visualization</h2>
     <div class="columns">
       
       <!-- 第一列 -->
