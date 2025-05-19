@@ -299,7 +299,7 @@ We believe that MI3D will advance 3D vision research.
           <p class="has-text-justified">
             This experiment analyzes nine kinds of illumination intensity data. We
             use normal light intensity (50–200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux,
-            5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux) respectively.
+            5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux) respectively. 
           </p>
           <p class="has-text-grey mt-4">
             👉 Click the tabs on the right or wait to auto-switch between visualizations.
@@ -311,19 +311,24 @@ We believe that MI3D will advance 3D vision research.
       <div class="column is-two-thirds">
 
         <!-- Tabs -->
-        <div class="tabs is-toggle is-centered mb-3">
+        <div class="tabs is-toggle is-centered mb-2">
           <ul id="illuminationTabs">
             <li class="is-active" data-target="figure3"><a><strong>Figure 3</strong></a></li>
             <li data-target="figure4"><a><strong>Figure 4</strong></a></li>
           </ul>
         </div>
+        
+        <!-- 👇说明文字，放在 Tabs 下面 -->
+        <p class="has-text-grey has-text-centered is-size-6 mb-4">
+          👉 Click the tabs above or wait to auto-switch between visualizations.
+        </p>
 
         <!-- 图像内容 -->
         <div id="figure3" class="image-tab-content fade-in">
           <figure class="image has-text-centered">
             <img src="static/images/Figure3.drawio_00.jpg" alt="Segmentation result under different illumination conditions" style="max-width: 100%; height: auto;" />
             <figcaption class="has-text-grey is-size-6 mt-2">
-              Visualization of segmentation results under three levels of illumination: dark, normal, and bright.
+              The nine illuminance intensity data pre-experiment. This experiment analyzes nine kinds of illuminance intensity data, we use normal light intensity 50-200 lux as our baseline and perform segmentation experiments for three dark illuminance intensities (1lux, 5lux, 10lux) as well as three bright illuminance intensities (300lux, 400lux, 500lux) respectively.
             </figcaption>
           </figure>
         </div>
@@ -332,7 +337,7 @@ We believe that MI3D will advance 3D vision research.
           <figure class="image has-text-centered">
             <img src="static/images/Figure4new_00.jpg" alt="Feature or performance comparison under illumination variations" style="max-width: 100%; height: auto;" />
             <figcaption class="has-text-grey is-size-6 mt-2">
-              Feature performance or class-wise distribution comparison across varying illumination conditions.
+              Feature performance or class-wise distribution comparison across varying illumination conditions. Intersection over Union (IoU) histograms for part object classes at nine illuminance intensities. We select nine different illuminance intensities as a comparison experiment and plot histograms for part categories to calculate Intersection over Union (IoU), and we use data with illuminance intensities of 50-200 lux as the baseline
             </figcaption>
           </figure>
         </div>
