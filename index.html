@@ -654,12 +654,35 @@ single object analysing in scene dormitory 1 and livingroom 1.
 
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+<!-- BibTeX citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="box">
+      <button class="button is-small is-link is-light is-pulled-right" onclick="copyBibTeX()">📋 Copy</button>
+      <pre><code id="bibtex-entry" class="language-bibtex">@inproceedings{anonymous2025semantic,
+  title     = {Semantic 2D-3D Data under Multi-Illuminance for Indoor Scene Understanding},
+  author    = {Anonymous},
+  booktitle = {Proceedings of the 8th Chinese Conference on Pattern Recognition and Computer Vision (PRCV)},
+  year      = {2025},
+  note      = {Under review}
+}</code></pre>
     </div>
+    <p id="copy-confirmation" class="has-text-success is-hidden">✅ Copied to clipboard!</p>
+  </div>
 </section>
+
+<script>
+  function copyBibTeX() {
+    const code = document.getElementById("bibtex-entry").innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      const msg = document.getElementById("copy-confirmation");
+      msg.classList.remove("is-hidden");
+      setTimeout(() => msg.classList.add("is-hidden"), 2000);
+    });
+  }
+</script>
+
 <!--End BibTex citation -->
 
 
