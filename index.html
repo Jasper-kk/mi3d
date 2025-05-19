@@ -430,7 +430,7 @@ We believe that MI3D will advance 3D vision research.
     <div class="tabs is-toggle is-centered mb-2" id="imageTabsWrapper">
       <ul id="imageTabs">
         <li class="is-active" data-target="figure8">
-          <a><strong>visualizations_under_three_illumination_ntensities</strong></a>
+          <a><strong>visualizations_under_three_illumination_intensities</strong></a>
         </li>
         <li data-target="figure15">
           <a><strong>qualitative_comparison</strong></a>
@@ -485,25 +485,93 @@ of rooms and objects in our dataset.</figcaption>
 
 
 <section class="section hero is-small is-light">
-    <div class="container is-max-desktop">
-        <div class="columns is-centered">
-            <div class="column is-full">
-                <div class="content">
-                    <h2 class="title is-3 has-text-centered">Three level illumination intensities Visualization for segmentation result</h2>
-                    <div class="level-set has-text-justified">
-                        <p>
-                          This experiment analyzes nine kinds of illumination intensity data. We use normal light intensity (50-200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux, 5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux) respectively.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container is-max-desktop">
 
-        <div class="hero-body">
-            <img src="static/images/Figure3.drawio_00.jpg" alt="A figure showing our segmentation result"/>
+    <!-- 标题和描述 -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">
+            Three Level Illumination Intensities Visualization for Segmentation Result
+          </h2>
+          <div class="level-set has-text-justified">
+            <p>
+              This experiment analyzes nine kinds of illumination intensity data. We use normal light intensity (50–200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux, 5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux) respectively.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+
+    <!-- 美观 Tabs -->
+    <div class="tabs is-toggle is-fullwidth is-boxed is-centered mb-2" id="imageTabsWrapper">
+      <ul id="imageTabs">
+        <li class="is-active" data-target="figure16">
+          <a><span class="icon">📊</span><span>Figure 16</span></a>
+        </li>
+        <li data-target="figure12">
+          <a><span class="icon">📊</span><span>Figure 12</span></a>
+        </li>
+        <li data-target="figure10">
+          <a><span class="icon">📊</span><span>Figure 10</span></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 提示语 -->
+    <p class="has-text-grey has-text-centered is-size-6 mb-4">
+      👉 Click the tabs above to switch between visualizations.
+    </p>
+
+    <!-- Tab 内容 -->
+    <div id="figure16" class="image-tab-content">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure16suppnew.drawio_00.jpg" alt="Illumination Comparison - Figure 16" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">
+          <strong>Figure 16:</strong> Segmentation results comparing three ranges of illumination intensity using supplementary data.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div id="figure12" class="image-tab-content is-hidden">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure12.drawio_00.jpg" alt="Illumination Comparison - Figure 12" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">
+          <strong>Figure 12:</strong> Statistical analysis of class-wise segmentation accuracy under different illumination settings.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div id="figure10" class="image-tab-content is-hidden">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure10new_00.jpg" alt="Illumination Comparison - Figure 10" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">
+          <strong>Figure 10:</strong> Visualization of the segmentation output on scene point clouds in varying lighting conditions.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
+
+<!-- JavaScript for tab switching (NO auto-switch) -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('#imageTabs li');
+    const contents = document.querySelectorAll('.image-tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('is-active'));
+        contents.forEach(c => c.classList.add('is-hidden'));
+
+        tab.classList.add('is-active');
+        const target = tab.getAttribute('data-target');
+        document.getElementById(target).classList.remove('is-hidden');
+      });
+    });
+  });
+</script>
+
 
 
   
