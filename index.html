@@ -383,16 +383,21 @@ We believe that MI3D will advance 3D vision research.
     </div>
 
     <div class="hero-body">
-      <!-- Tabs -->
-      <div class="tabs is-centered is-boxed">
+      <!-- Tabs with strong border and background -->
+      <div class="tabs is-centered is-boxed is-large" style="margin-bottom: 1rem;">
         <ul id="imageTabs">
-          <li class="is-active" data-target="img1"><a>Scene Class Distribution</a></li>
-          <li data-target="img2"><a>Barplot</a></li>
-          <li data-target="img3"><a>3D Segmentation</a></li>
+          <li class="is-active" data-target="img1"><a><strong>Scene Class Distribution</strong></a></li>
+          <li data-target="img2"><a><strong>Barplot</strong></a></li>
+          <li data-target="img3"><a><strong>3D Segmentation</strong></a></li>
         </ul>
       </div>
 
-      <!-- Images -->
+      <!-- Explanation text -->
+      <p class="has-text-centered has-text-grey mb-5">
+        👉 Click the tabs above to view each visualization result.
+      </p>
+
+      <!-- Image Panels -->
       <div class="has-text-centered">
         <div id="img1" class="image-tab-content">
           <img src="static/images/scene_class_distribution.png" style="max-width: 100%; height: auto;" />
@@ -418,13 +423,12 @@ We believe that MI3D will advance 3D vision research.
       tab.classList.add('is-active');
 
       const target = tab.getAttribute('data-target');
-      contents.forEach(content => {
-        content.classList.add('is-hidden');
-      });
+      contents.forEach(content => content.classList.add('is-hidden'));
       document.getElementById(target).classList.remove('is-hidden');
     });
   });
 </script>
+
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
