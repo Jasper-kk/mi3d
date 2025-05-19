@@ -313,8 +313,8 @@ We believe that MI3D will advance 3D vision research.
         <!-- Tabs -->
         <div class="tabs is-toggle is-centered mb-2">
           <ul id="illuminationTabs">
-            <li class="is-active" data-target="figure3"><a><strong>scene_class_distribution</strong></a></li>
-            <li data-target="figure4"><a><strong>Feature_performance_comparison</strong></a></li>
+            <li class="is-active" data-target="figure3"><a><strong>segmentation_result</strong></a></li>
+            <li data-target="figure4"><a><strong>feature_performance_comparison</strong></a></li>
           </ul>
         </div>
         
@@ -409,25 +409,79 @@ We believe that MI3D will advance 3D vision research.
 
   
 <section class="section hero is-small is-light">
-    <div class="container is-max-desktop">
-        <div class="columns is-centered">
-            <div class="column is-full">
-                <div class="content">
-                    <h2 class="title is-3 has-text-centered">Comparison of Visualizations under Three Illumination Intensities</h2>
-                    <div class="level-set has-text-justified">
-                        <p>
-                            This experiment analyzes nine kinds of illumination intensity data. We use normal light intensity (50-200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux, 5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux).
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">
+            Comparison of Visualizations under Three Illumination Intensities
+          </h2>
+          <div class="level-set has-text-justified">
+            <p>
+              This experiment analyzes nine kinds of illumination intensity data. We use normal light intensity (50–200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux, 5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux).
+            </p>
+          </div>
         </div>
-
-        <div class="hero-body">
-            <img src="static/images/Figure8.drawio_00.jpg" alt="A figure showing our segmentation result"/>
-        </div>
+      </div>
     </div>
+
+    <!-- Tabs -->
+    <div class="tabs is-toggle is-centered mb-2" id="imageTabsWrapper">
+      <ul id="imageTabs">
+        <li class="is-active" data-target="figure8">
+          <a><strong>Figure8.drawio_00.jpg</strong></a>
+        </li>
+        <li data-target="figure15">
+          <a><strong>Figure15PDF.drawio_00.jpg</strong></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Click hint -->
+    <p class="has-text-grey has-text-centered is-size-6 mb-4">
+      👉 Click the tabs above to switch between visualizations.
+    </p>
+
+    <!-- Tab Contents -->
+    <div class="image-tab-content" id="figure8">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure8.drawio_00.jpg" alt="Visualization under three illumination intensities" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">Data from two indoor scenes based on three different illuminance intensities from MI3D data. Each scene was controlled by light intensity through Light Control System-LCS. We endeavored to include a variety
+of rooms and objects in our dataset.</figcaption>
+      </figure>
+    </div>
+
+    <div class="image-tab-content is-hidden" id="figure15">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure15PDF.drawio_00.jpg" alt="3D segmentation performance under varying illumination" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">Qualitative comparison of RGB, point clouds and depth images with multi illuminance intensities. Control nine kinds of illuminance intensity (1 lux, 5 lux, 10 lux, 50 lux, 100 lux, 200 lux, 300 lux, 400 lux, 500 lux)
+          under light control system (LCS) and compare the variation of RGB, point clouds and depth images under these nine different illuminance intensities.</figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
+
+<!-- JS to switch tabs manually -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('#imageTabs li');
+    const contents = document.querySelectorAll('.image-tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('is-active'));
+        contents.forEach(c => c.classList.add('is-hidden'));
+
+        tab.classList.add('is-active');
+        const target = tab.getAttribute('data-target');
+        document.getElementById(target).classList.remove('is-hidden');
+      });
+    });
+
+    // 🔕 No auto-switching
+  });
+</script>
+
 
 <section class="section hero is-small is-light">
     <div class="container is-max-desktop">
