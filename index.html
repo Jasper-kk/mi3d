@@ -371,11 +371,11 @@ We believe that MI3D will advance 3D vision research.
       <div class="column is-full">
         <div class="content">
           <h2 class="title is-3 has-text-centered">
-            Comparison of Visualizations under Three Illumination Intensities
+            Distribution of MI3D dataset
           </h2>
           <div class="level-set has-text-justified">
             <p>
-              This experiment analyzes nine kinds of illumination intensity data. We use normal light intensity (50-200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux, 5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux).
+              MI3D contains 73 indoor scenes, each with 16 different scenes under each scene category, captured under three illuminance intensities controlled by the Light Control System (LCS). There are 16 indoor scene categories that describe a diversity of indoor environments and distinguish different indoor environments from each other, such as the living room, bedroom, balcony.
             </p>
           </div>
         </div>
@@ -387,8 +387,8 @@ We believe that MI3D will advance 3D vision research.
       <div class="tabs is-centered is-boxed is-large" style="margin-bottom: 1rem;">
         <ul id="imageTabs">
           <li class="is-active" data-target="img1"><a><strong>Scene Class Distribution</strong></a></li>
-          <li data-target="img2"><a><strong>Barplot</strong></a></li>
-          <li data-target="img3"><a><strong>3D Segmentation</strong></a></li>
+          <li data-target="img2"><a><strong>Top-5 Frequent Subclasses per Scene</strong></a></li>
+          <li data-target="img3"><a><strong>Object Class Distribution</strong></a></li>
         </ul>
       </div>
 
@@ -400,13 +400,16 @@ We believe that MI3D will advance 3D vision research.
       <!-- Image Panels -->
       <div class="has-text-centered">
         <div id="img1" class="image-tab-content">
-          <img src="static/images/scene_class_distribution.png" style="max-width: 100%; height: auto;" />
+          <img src="static/images/scene_class_distribution.png" alt="Scene class distribution under different illumination intensities" style="max-width: 100%; height: auto;" />
+          <p class="has-text-grey is-size-6 mt-2">Distribution of scene classes across various lighting conditions (dark, normal, bright).</p>
         </div>
         <div id="img2" class="image-tab-content is-hidden">
-          <img src="static/images/multi_subplots_barplot.png" style="max-width: 100%; height: auto;" />
+          <img src="static/images/multi_subplots_barplot.png" alt="Barplot comparing segmentation accuracy across illumination levels" style="max-width: 100%; height: auto;" />
+          <p class="has-text-grey is-size-6 mt-2">Segmentation performance metrics plotted as bar charts for different illumination intensities.</p>
         </div>
         <div id="img3" class="image-tab-content is-hidden">
-          <img src="static/images/3d_segmentation_class_distribution_vertical.png" style="max-width: 100%; height: auto;" />
+          <img src="static/images/3d_segmentation_class_distribution_vertical.png" alt="Vertical 3D segmentation class distribution across illumination settings" style="max-width: 100%; height: auto;" />
+          <p class="has-text-grey is-size-6 mt-2">3D visualization showing the distribution of segmentation classes under varying light intensities.</p>
         </div>
       </div>
     </div>
