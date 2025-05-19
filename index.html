@@ -496,7 +496,9 @@ of rooms and objects in our dataset.</figcaption>
           </h2>
           <div class="level-set has-text-justified">
             <p>
-              This experiment analyzes nine kinds of illumination intensity data. We use normal light intensity (50–200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux, 5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux) respectively.
+              As part of our evaluation, we worked with a subset of our dataset that contained 6000 point cloud data. We divided these into three categories based on illuminance intensity: low light (1-5 lux), normal light (100-200 lux), and strong light(400-500 lux). We separately classified each illuminance intensity and performed
+              the segmentation task on the base model PointNet. We separately classified each illuminance intensity and performed the semantic segmentation task on the base model PointNet. 
+              During the training process, we randomly sampled 4096 points for each block.
             </p>
           </div>
         </div>
@@ -507,13 +509,13 @@ of rooms and objects in our dataset.</figcaption>
     <div class="tabs is-toggle is-fullwidth is-boxed is-centered mb-2" id="imageTabsWrapper">
       <ul id="imageTabs">
         <li class="is-active" data-target="figure16">
-          <a><span class="icon">📊</span><span>Figure 16</span></a>
+          <a><span class="icon">📊</span><span>qualitative_comparison</span></a>
         </li>
         <li data-target="figure12">
-          <a><span class="icon">📊</span><span>Figure 12</span></a>
+          <a><span class="icon">📊</span><span>single-object_multi-illuminance_analyzing</span></a>
         </li>
         <li data-target="figure10">
-          <a><span class="icon">📊</span><span>Figure 10</span></a>
+          <a><span class="icon">📊</span><span> IoU_for_part object_classes_for_multi-illuminance</span></a>
         </li>
       </ul>
     </div>
@@ -528,7 +530,9 @@ of rooms and objects in our dataset.</figcaption>
       <figure class="image has-text-centered">
         <img src="static/images/Figure16suppnew.drawio_00.jpg" alt="Illumination Comparison - Figure 16" style="max-width: 100%; height: auto;" />
         <figcaption class="has-text-centered mt-2">
-          <strong>Figure 16:</strong> Segmentation results comparing three ranges of illumination intensity using supplementary data.
+          <strong>qualitative_comparison</strong> Qualitative comparison of RGB, point clouds segmentation result with multi illuminance intensities. The left column shows the RGB and point cloud data under normal light intensity (100-200 lux), and the center 
+          Ground Truth (GT) in the right column shows the segmentation results under normal light intensity (100-200 lux), and then the segmentation prediction is 
+          performed for the data under low light (1-5 lux) and bright light (400-500 lux), respectively.
         </figcaption>
       </figure>
     </div>
@@ -537,7 +541,8 @@ of rooms and objects in our dataset.</figcaption>
       <figure class="image has-text-centered">
         <img src="static/images/Figure12.drawio_00.jpg" alt="Illumination Comparison - Figure 12" style="max-width: 100%; height: auto;" />
         <figcaption class="has-text-centered mt-2">
-          <strong>Figure 12:</strong> Statistical analysis of class-wise segmentation accuracy under different illumination settings.
+          <strong>single-object_multi-illuminance_analyzing</strong> The semantic segmentation result for scene prediction and for
+single object analysing in scene dormitory 1 and livingroom 1.
         </figcaption>
       </figure>
     </div>
@@ -546,7 +551,8 @@ of rooms and objects in our dataset.</figcaption>
       <figure class="image has-text-centered">
         <img src="static/images/Figure10new_00.jpg" alt="Illumination Comparison - Figure 10" style="max-width: 100%; height: auto;" />
         <figcaption class="has-text-centered mt-2">
-          <strong>Figure 10:</strong> Visualization of the segmentation output on scene point clouds in varying lighting conditions.
+          <strong>IoU_histograms_for_part_object_classes</strong> Intersection over Union (IoU) histograms for part object classes at three illuminance intensities. 
+          We choose low illuminance intensities (1-5lux) and bright illuminance intensities (400-500 lux) as a comparison experiment, data with illuminance intensities of 100-200 lux as the baseline.
         </figcaption>
       </figure>
     </div>
