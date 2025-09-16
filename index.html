@@ -134,7 +134,7 @@
         <div class="hero-body">
             <img src="static/images/Figure1new_2_compressed_01.png" alt="An overview of our method"/>
             <h2 class="subtitle has-text-centered">
-                Pipline for Semantic 2D-3D data under Multi-Illuminance for Indoor Scene Understanding (MI3D).a. Dataset curation: we present a dataset that provides a variety of data modalities, including RGB images, depth images, point clouds, and instance-level semantic annotations in 2D and 3D as well as scene annotations. b. Training algorithm: use vision model to show MI3D performance. 
+                a. Dataset collection and annotation: Pipline for data collection and data annotation. MI3D including RGB, depth and point clouds,  all densely annotated under three illuminance intensity ranges: low (1–5 lux), normal (100–200 lux), and bright (400–500 lux). b. Estimated distribution of dataset. c. Vision model with Mi3D dataset. d. The performance of vision model and prediction sample and mIoU result for 3D data under multi-illuminance.
             </h2>
         </div>
     </div>
@@ -154,7 +154,7 @@
 Previous methods employed expensive LiDAR to mitigate illumination effects, often at the expense of real-world fidelity and model generalization.
 We propose MI3D, a novel benchmark for 3D indoor scene understanding under varying lighting conditions, capturing point clouds across three distinct and previously underexplored illuminance levels: 1–5 lux, 100–200 lux, and 400–500 lux.
 MI3D incorporates a dedicated Illuminance Control System (LCS) to standardize lighting conditions, enabling systematic evaluation of illumination effects on 3D data. It currently represents the largest indoor benchmark for point cloud classification and segmentation under multi-illuminance settings.
-The dataset utilizes three distinct illuminance levels and contains 17,366 RGB-D images and 8,683 point clouds. These were captured in 16 different scenes, showcasing a total of 73 distinct objects.
+The dataset utilizes three distinct illuminance levels and contains 34,732 RGB-D images and 17,366 point clouds. These were captured in 16 different scenes, showcasing a total of 73 distinct objects.
 Each scene was captured under three distinct illuminance conditions and four different height levels: two flat heights (1m and 1.5m) and two top heights (2m and 2.3m).
 Using this dataset, we have been able to train challenging state-of-the-art models tackling complex challenges.
 We believe that MI3D will advance 3D vision research.
@@ -240,7 +240,7 @@ We believe that MI3D will advance 3D vision research.
       <figure class="image">
         <img src="static/images/table2.png" alt="Example 1 from MI3D dataset" style="width:100%; height:auto;">
       </figure>
-      <p class="mt-2"><strong>Figure A.</strong> Example indoor scene captured under low illuminance.</p>
+      <p class="mt-2"><strong>Figure A.</strong> Comparison of semantic segmentation results on the MI3D dataset across five different point cloud models under varying illuminance levels using D435i and ZED cameras. Blue cells = better with D435i, Green cells = better with ZED. Values in parentheses indicate performance change compared to training condition. Each light condition shows OA(%) and mIoU(%) for both cameras. We select PointNet, PointNet++, DGCNN, PointCNN, and Point Transformer as baselines since they represent key milestones in point cloud learning. PointNet and PointNet++ establish the foundation for direct point set processing and hierarchical feature extraction, DGCNN and PointCNN focus on local neighborhood modeling, and Point Transformer introduces attention-based global context learning. These models cover the major paradigms in point cloud analysis and provide representative benchmarks for evaluation..</p>
     </div>
 
     <!-- Second figure -->
@@ -248,7 +248,7 @@ We believe that MI3D will advance 3D vision research.
       <figure class="image">
         <img src="static/images/Figure10new_01.png" alt="Example 2 from MI3D dataset" style="width:100%; height:auto;">
       </figure>
-      <p class="mt-2"><strong>Figure B.</strong> Example indoor scene captured under high illuminance.</p>
+      <p class="mt-2"><strong>Figure B.</strong> Intersection over Union (IoU 0-1) histograms for part object classes at three illuminance intensities.}  We choose low illuminance intensities (1-5 lux) and bright illuminance intensities (400-500 lux) as a comparison experiment, data with illuminance intensities of 100-200 lux as the baseline test on pointnet in D435i and ZED camera.</p>
     </div>
   </div>
 </section>
