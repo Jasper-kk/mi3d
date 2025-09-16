@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="We present MI3D, a pioneering benchmark for 3D datasets under multiple indoor illuminance. MI3D collects point clouds under three distinct illuminance intensity ranges(1-5lux, 100-200lux, 400-500lux) that were not previously explored.">
+  <meta property="og:title" content="Semantic 2D-3D data under Multi-Illuminance for Indoor Scene Understanding"/>
+  <meta property="og:description" content="We present MI3D, a pioneering benchmark for 3D datasets under multiple indoor illuminance. MI3D collects point clouds under three distinct illuminance intensity ranges(1-5lux, 100-200lux, 400-500lux) that were not previously explored."/>
+  <meta property="og:url" content="https://jasper-kk.github.io/mi3d/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Semantic 2D-3D data under Multi-Illuminance for Indoor Scene Understanding</title>
+  <link rel="icon" type="image/x-icon" href="static/images/logo.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Semantic 2D-3D data under Multi-Illuminance for Indoor Scene Understanding</h1>
+          
+          <!-- 注释掉作者 -->
+          <!-- 
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jasper-kk.github.io/" target="_blank">Xikai Tang</a><sup><a href="#institution1">1</a>*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Chao Li</a><sup><a href="#institution1">2</a>*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">FangZheng Huang</a><sup><a href="#institution2">3</a>*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="FOURTH AUTHOR PERSONAL LINK" target="_blank">Dayan Ban</a><sup><a href="#institution2">4</a>*</sup>,
+            </span>
+          </div>
+          -->
+
+          <!-- 注释掉机构 -->
+          <!-- 
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" id="institution2">University of Waterloo <br></span>
+            <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+          </div>
+          -->
+
+          <!-- 所有按钮区域 -->
+          <div class="publication-links is-flex is-justify-content-center is-flex-wrap-wrap mt-4">
+            <!-- ArXiv Paper PDF -->
+            <span class="link-block m-2">
+              <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+
+            <!-- Supplementary PDF -->
+            <span class="link-block m-2">
+              <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Supplementary</span>
+              </a>
+            </span>
+
+            <!-- ArXiv Abstract -->
+            <span class="link-block m-2">
+              <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Teaser Image-->
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <img src="static/images/Figure1new_2_compressed_01.png" alt="An overview of our method"/>
+            <h2 class="subtitle has-text-centered">
+                Pipline for Semantic 2D-3D data under Multi-Illuminance for Indoor Scene Understanding (MI3D).a. Dataset curation: we present a dataset that provides a variety of data modalities, including RGB images, depth images, point clouds, and instance-level semantic annotations in 2D and 3D as well as scene annotations. b. Training algorithm: use vision model to show MI3D performance. 
+            </h2>
+        </div>
+    </div>
+</section>
+<!-- End teaser Image -->
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        A major challenge in collecting 3D data is capturing it under uncontrolled multi-illuminance in photon-limited scenes.
+Previous methods employed expensive LiDAR to mitigate illumination effects, often at the expense of real-world fidelity and model generalization.
+We propose MI3D, a novel benchmark for 3D indoor scene understanding under varying lighting conditions, capturing point clouds across three distinct and previously underexplored illuminance levels: 1–5 lux, 100–200 lux, and 400–500 lux.
+MI3D incorporates a dedicated Illuminance Control System (LCS) to standardize lighting conditions, enabling systematic evaluation of illumination effects on 3D data. It currently represents the largest indoor benchmark for point cloud classification and segmentation under multi-illuminance settings.
+The dataset utilizes three distinct illuminance levels and contains 17,366 RGB-D images and 8,683 point clouds. These were captured in 16 different scenes, showcasing a total of 73 distinct objects.
+Each scene was captured under three distinct illuminance conditions and four different height levels: two flat heights (1m and 1.5m) and two top heights (2m and 2.3m).
+Using this dataset, we have been able to train challenging state-of-the-art models tackling complex challenges.
+We believe that MI3D will advance 3D vision research.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
+<!-- 
+
+<section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+        <div class="container is-max-desktop">
+            <div class="column is-full">
+                <div class="content">
+                    <h2 id="pipeline" class="title is-3 has-text-centered">Pipeline</h2>
+                    <div class="level-set has-text-justified">
+                        <p>
+                            The pipeline for acquisition setup, data collection and annotation of the MI3D dataset. Here we visualize the three steps of acquisition setup, data collection and annotation with each step shown in detail for better illustration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-body">
+            <img src="static/images/workflow.jpg" alt="A figure showing our Dataset"/>
+        </div>
+
+    </div>
+</section>
+
+ -->
+<!-- 
+
+<section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full">
+                <div class="content">
+                    <h2 class="title is-3">Visualization</h2>
+                    <div class="level-set has-text-justified">
+                        <p>
+                        <p>
+                          In this work, we have created a unique dataset named MI3D, which comprises \textbf{m}ulti-\textbf{i}lluminated indoor point clouds. 
+                          
+                          We believe that the intensity of illumination can impact point clouds, and to capture the real-life effects of multi-illumination intensity, we have recorded 19 different scenes with over 108 objects. 
+                          
+                          Each scene has been captured under three different illuminations, resulting in a total of 60,000 RGB-D images and 30,000 point clouds. 
+                          
+                          The dataset contains dense annotations in both 2D and 3D for both objects and scenes. MI3D is the first 3D dataset of its kind, which provides different lighting intensities in both objects and scenes.                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-body">
+            <img src="static/images/Figure1.drawio_00.jpg" alt="A figure showing our Dataset"/>
+        </div>
+
+    </div>
+</section> -->
+
+    
+<section class="section" id="3d-visualization">
+  <div class="container">
+    <h2 id="3d-visualization" class="title is-3 has-text-centered">3D-visualization</h2>
+    <div class="columns">
+      
+      <!-- 第一列 -->
+      <div class="column">
+        <h3 class="title is-5 has-text-centered">lux 1</h3>
+        <div class="box">
+          <p class="has-text-centered">saloon</p>
+          <model-viewer src="static/videos/545-1-3-1-1-saloon.glb" camera-controls disable-zoom orientation="0deg 270deg 0deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+        <div class="box">
+          <p class="has-text-centered">office</p>
+          <model-viewer src="static/videos/362-1-7-1-1-office.glb" camera-controls disable-zoom orientation="0deg 270deg 0deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+        <div class="box">
+          <p class="has-text-centered">assemblyroom</p>
+          <model-viewer src="static/videos/493-1-37-1-1-assemblyroom.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+      </div>
+
+      <!-- 第二列 -->
+      <div class="column">
+        <h3 class="title is-5 has-text-centered">lux 2</h3>
+        <div class="box">
+          <p class="has-text-centered">saloon</p>
+          <model-viewer src="static/videos/545-2-3-1-1-saloon.glb" camera-controls disable-zoom orientation="0deg 270deg 0deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+        <div class="box">
+          <p class="has-text-centered">office</p>
+          <model-viewer src="static/videos/362-2-7-1-1-office.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+        <div class="box">
+          <p class="has-text-centered">assemblyroom</p>
+          <model-viewer src="static/videos/493-2-37-1-1-assemblyroom.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+      </div>
+
+      <!-- 第三列 -->
+      <div class="column">
+        <h3 class="title is-5 has-text-centered">lux 3</h3>
+        <div class="box">
+          <p class="has-text-centered">saloon</p>
+          <model-viewer src="static/videos/545-3-3-1-1-saloon.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" exposure="1.5" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+        <div class="box">
+          <p class="has-text-centered">office</p>
+          <model-viewer src="static/videos/362-3-7-1-1-office.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" exposure="1.5" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+        <div class="box">
+          <p class="has-text-centered">assemblyroom</p>
+          <model-viewer src="static/videos/493-3-37-1-1-assemblyroom.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" exposure="1.5" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  
+
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+
+    <!-- 标题 -->
+    <div class="content has-text-centered">
+      <h2 class="title is-3">Why use three level illumination intensities for Mi3D</h2>
+    </div>
+
+    <div class="columns is-vcentered">
+      <!-- 左侧文字 -->
+      <div class="column is-one-third">
+        <div class="content">
+          <p class="has-text-justified">
+            This experiment analyzes nine kinds of illumination intensity data. We
+            use normal light intensity (50–200 lux) as our baseline, and perform segmentation experiments for three dark illumination intensities (1 lux,
+            5 lux, 10 lux) as well as three bright illumination intensities (300 lux, 400 lux, 500 lux) respectively. 
+            <strong>
+              Consequently, it is easy to observe that point clouds under multi-illuminance conditions lose their original data morphology due to noise, photon starvation, and over-saturation. And three different light intensity ranges (1–5 lux, 100–200 lux, 400–500 lux) are defined.
+            </strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- 右侧图像与切换 -->
+      <div class="column is-two-thirds">
+
+        <!-- Tabs -->
+        <div class="tabs is-toggle is-centered mb-2">
+          <ul id="illuminationTabs">
+            <li class="is-active" data-target="figure3"><a><strong>segmentation_result</strong></a></li>
+            <li data-target="figure4"><a><strong>feature_performance_comparison</strong></a></li>
+          </ul>
+        </div>
+        
+        <!-- 👇说明文字，放在 Tabs 下面 -->
+        <p class="has-text-grey has-text-centered is-size-6 mb-4">
+          👉 Click the tabs above or wait to auto-switch between visualizations.
+        </p>
+
+        <!-- 图像内容 -->
+        <div id="Segmentation result under different illumination" class="image-tab-content fade-in">
+          <figure class="image has-text-centered">
+            <img src="static/images/Figure3.drawio_00.jpg" alt="Segmentation result under different illumination conditions" style="max-width: 100%; height: auto;" />
+            <figcaption class="has-text-grey is-size-6 mt-2">
+              The nine illuminance intensity data pre-experiment. This experiment analyzes nine kinds of illuminance intensity data, we use normal light intensity 50-200 lux as our baseline and perform segmentation experiments for three dark illuminance intensities (1lux, 5lux, 10lux) as well as three bright illuminance intensities (300lux, 400lux, 500lux) respectively.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div id="Feature performance comparison" class="image-tab-content is-hidden fade-in">
+          <figure class="image has-text-centered">
+            <img src="static/images/Figure4new_00.jpg" alt="Feature or performance comparison under illumination variations" style="max-width: 100%; height: auto;" />
+            <figcaption class="has-text-grey is-size-6 mt-2">
+              Feature performance or class-wise distribution comparison across varying illumination conditions. Intersection over Union (IoU) histograms for part object classes at nine illuminance intensities. We select nine different illuminance intensities as a comparison experiment and plot histograms for part categories to calculate Intersection over Union (IoU), and we use data with illuminance intensities of 50-200 lux as the baseline
+            </figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS: 淡入动画样式 -->
+<style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .fade-in.show {
+    opacity: 1;
+  }
+</style>
+
+<!-- JavaScript: Tab 切换 + 自动轮播 -->
+<script>
+  const tabButtons = document.querySelectorAll('#illuminationTabs li');
+  const tabContents = document.querySelectorAll('.image-tab-content');
+  let currentTab = 0;
+  let autoSwitchInterval = null;
+
+  function showTab(index) {
+    tabButtons.forEach((tab, i) => {
+      tab.classList.toggle('is-active', i === index);
+    });
+
+    tabContents.forEach((content, i) => {
+      content.classList.add('is-hidden');
+      content.classList.remove('show');
+      if (i === index) {
+        setTimeout(() => {
+          content.classList.remove('is-hidden');
+          content.classList.add('show');
+        }, 50); // delay for smooth transition
+      }
+    });
+
+    currentTab = index;
+  }
+
+  // 手动点击切换
+  tabButtons.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      clearInterval(autoSwitchInterval); // 手动点击后停止自动切换
+      showTab(index);
+    });
+  });
+
+  // 自动轮播每 6 秒切换
+  function startAutoSwitch() {
+    autoSwitchInterval = setInterval(() => {
+      const nextTab = (currentTab + 1) % tabButtons.length;
+      showTab(nextTab);
+    }, 6000);
+  }
+
+  // 初始化
+  showTab(currentTab);
+  startAutoSwitch();
+</script>
+
+
+  
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">
+            Comparison of Visualizations under Three Illumination Intensities
+          </h2>
+          <div class="level-set has-text-justified">
+            <p>
+              Data from two indoor scenes based on three different illuminance intensities from MI3D data. Each scene was controlled by light intensity through Light Control System-LCS. 
+              We endeavored to include a variety of rooms and objects in our dataset.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs is-toggle is-centered mb-2" id="imageTabsWrapper">
+      <ul id="imageTabs">
+        <li class="is-active" data-target="figure8">
+          <a><strong>visualizations_under_three_illumination_intensities</strong></a>
+        </li>
+        <li data-target="figure15">
+          <a><strong>qualitative_comparison</strong></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Click hint -->
+    <p class="has-text-grey has-text-centered is-size-6 mb-4">
+      👉 Click the tabs above to switch between visualizations.
+    </p>
+
+    <!-- Tab Contents -->
+    <div class="image-tab-content" id="figure8">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure8.drawio_00.jpg" alt="Visualization under three illumination intensities" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">Data from two indoor scenes based on three different illuminance intensities from MI3D data. Each scene was controlled by light intensity through Light Control System-LCS. We endeavored to include a variety
+of rooms and objects in our dataset.</figcaption>
+      </figure>
+    </div>
+
+    <div class="image-tab-content is-hidden" id="figure15">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure15PDF.drawio_00.jpg" alt="3D segmentation performance under varying illumination" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">Qualitative comparison of RGB, point clouds and depth images with multi illuminance intensities. Control nine kinds of illuminance intensity (1 lux, 5 lux, 10 lux, 50 lux, 100 lux, 200 lux, 300 lux, 400 lux, 500 lux)
+          under light control system (LCS) and compare the variation of RGB, point clouds and depth images under these nine different illuminance intensities.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- JS to switch tabs manually -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('#imageTabs li');
+    const contents = document.querySelectorAll('.image-tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('is-active'));
+        contents.forEach(c => c.classList.add('is-hidden'));
+
+        tab.classList.add('is-active');
+        const target = tab.getAttribute('data-target');
+        document.getElementById(target).classList.remove('is-hidden');
+      });
+    });
+
+    // 🔕 No auto-switching
+  });
+</script>
+
+
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+
+    <!-- 标题和描述 -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">
+            Three Level Illumination Intensities Visualization for Segmentation Result
+          </h2>
+          <div class="level-set has-text-justified">
+            <p>
+              As part of our evaluation, we worked with a subset of our dataset that contained 6000 point cloud data. We divided these into three categories based on illuminance intensity: low light (1-5 lux), normal light (100-200 lux), and strong light(400-500 lux). We separately classified each illuminance intensity and performed
+              the segmentation task on the base model PointNet. We separately classified each illuminance intensity and performed the semantic segmentation task on the base model PointNet. 
+              During the training process, we randomly sampled 4096 points for each block.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 美观 Tabs -->
+    <div class="tabs is-toggle is-fullwidth is-boxed is-centered mb-2" id="imageTabsWrapper">
+      <ul id="imageTabs">
+        <li class="is-active" data-target="figure16">
+          <a><span class="icon">📊</span><span>qualitative_comparison </span></a>
+        </li>
+        <li data-target="figure12">
+          <a><span class="icon">📊</span><span>single-object_multi-illuminance_analyzing</span></a>
+        </li>
+        <li data-target="figure10">
+          <a><span class="icon">📊</span><span> IoU_for_part object_classes_for_multi-illuminance</span></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 提示语 -->
+    <p class="has-text-grey has-text-centered is-size-6 mb-4">
+      👉 Click the tabs above to switch between visualizations.
+    </p>
+
+    <!-- Tab 内容 -->
+    <div id="figure16" class="image-tab-content">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure16suppnew.drawio_00.jpg" alt="Illumination Comparison - Figure 16" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">
+          <strong>qualitative_comparison</strong> Qualitative comparison of RGB, point clouds segmentation result with multi illuminance intensities. The left column shows the RGB and point cloud data under normal light intensity (100-200 lux), and the center 
+          Ground Truth (GT) in the right column shows the segmentation results under normal light intensity (100-200 lux), and then the segmentation prediction is 
+          performed for the data under low light (1-5 lux) and bright light (400-500 lux), respectively.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div id="figure12" class="image-tab-content is-hidden">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure12.drawio_00.jpg" alt="Illumination Comparison - Figure 12" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">
+          <strong>single-object_multi-illuminance_analyzing</strong> The semantic segmentation result for scene prediction and for
+single object analysing in scene dormitory 1 and livingroom 1.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div id="figure10" class="image-tab-content is-hidden">
+      <figure class="image has-text-centered">
+        <img src="static/images/Figure10new_00.jpg" alt="Illumination Comparison - Figure 10" style="max-width: 100%; height: auto;" />
+        <figcaption class="has-text-centered mt-2">
+          <strong>IoU_histograms_for_part_object_classes</strong> Intersection over Union (IoU) histograms for part object classes at three illuminance intensities. 
+          We choose low illuminance intensities (1-5lux) and bright illuminance intensities (400-500 lux) as a comparison experiment, data with illuminance intensities of 100-200 lux as the baseline.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for tab switching (NO auto-switch) -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('#imageTabs li');
+    const contents = document.querySelectorAll('.image-tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('is-active'));
+        contents.forEach(c => c.classList.add('is-hidden'));
+
+        tab.classList.add('is-active');
+        const target = tab.getAttribute('data-target');
+        document.getElementById(target).classList.remove('is-hidden');
+      });
+    });
+  });
+</script>
+
+
+
+  
+    </div>
+</section>
+
+
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">
+            Distribution of MI3D dataset
+          </h2>
+          <div class="level-set has-text-justified">
+            <p>
+              MI3D contains 16 indoor scenes, with total 73 different objects, captured under three illuminance intensities controlled by the Light Control System (LCS). There are 16 indoor scene categories that describe a diversity of indoor environments and distinguish different indoor environments from each other, such as the living room, bedroom, balcony.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-body">
+      <!-- Tabs with strong border and background -->
+      <div class="tabs is-centered is-boxed is-large" style="margin-bottom: 1rem;">
+        <ul id="imageTabs">
+          <li class="is-active" data-target="img1"><a><strong>Scene Class Distribution</strong></a></li>
+          <li data-target="img2"><a><strong>Top-5 Frequent Subclasses per Scene</strong></a></li>
+          <li data-target="img3"><a><strong>Object Class Distribution</strong></a></li>
+        </ul>
+      </div>
+
+      <!-- Explanation text -->
+      <p class="has-text-centered has-text-grey mb-5">
+        👉 Click the tabs above to view each visualization result.
+      </p>
+
+      <!-- Image Panels -->
+      <div class="has-text-centered">
+        <div id="img1" class="image-tab-content">
+          <img src="static/images/scene_class_distribution.png" alt="Scene class distribution under different illumination intensities" style="max-width: 100%; height: auto;" />
+          <p class="has-text-grey is-size-6 mt-2">Distribution of scene classes across various lighting conditions (dark, normal, bright).</p>
+        </div>
+        <div id="img2" class="image-tab-content is-hidden">
+          <img src="static/images/multi_subplots_barplot.png" alt="Barplot comparing segmentation accuracy across illumination levels" style="max-width: 100%; height: auto;" />
+          <p class="has-text-grey is-size-6 mt-2">Top-5 Frequent Subclasses per Scene.</p>
+        </div>
+        <div id="img3" class="image-tab-content is-hidden">
+          <img src="static/images/3d_segmentation_class_distribution_vertical.png" alt="Vertical 3D segmentation class distribution across illumination settings" style="max-width: 100%; height: auto;" />
+          <p class="has-text-grey is-size-6 mt-2">Object Class Distribution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('#imageTabs li');
+  const contents = document.querySelectorAll('.image-tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+
+      const target = tab.getAttribute('data-target');
+      contents.forEach(content => content.classList.add('is-hidden'));
+      document.getElementById(target).classList.remove('is-hidden');
+    });
+  });
+</script>
+
+
+<!-- BibTex citation -->
+<!-- BibTeX citation -->
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="box">
+      <button class="button is-small is-link is-light is-pulled-right" onclick="copyBibTeX()">📋 Copy</button>
+      <pre><code id="bibtex-entry" class="language-bibtex">@inproceedings{anonymous2025semantic,
+  title     = {Semantic 2D-3D Data under Multi-Illuminance for Indoor Scene Understanding},
+  author    = {Anonymous},
+  booktitle = {Proceedings of the 8th Chinese Conference on Pattern Recognition and Computer Vision (PRCV)},
+  year      = {2025},
+  note      = {Under review}
+}</code></pre>
+    </div>
+    <p id="copy-confirmation" class="has-text-success is-hidden">✅ Copied to clipboard!</p>
+  </div>
+</section>
+
+<script>
+  function copyBibTeX() {
+    const code = document.getElementById("bibtex-entry").innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      const msg = document.getElementById("copy-confirmation");
+      msg.classList.remove("is-hidden");
+      setTimeout(() => msg.classList.add("is-hidden"), 2000);
+    });
+  }
+</script> -->
+
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
