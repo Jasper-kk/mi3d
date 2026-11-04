@@ -1,328 +1,281 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="We present MI3D, a pioneering benchmark for 3D datasets under multiple indoor illuminance. MI3D collects point clouds under three distinct illuminance intensity ranges(1-5lux, 100-200lux, 400-500lux) that were not previously explored.">
-  <meta property="og:title" content="MI3D: An RGB-D and Point Cloud Benchmark for Indoor Scene Understanding under Multi-Illumination"/>
-  <meta property="og:description" content="We present MI3D, a pioneering benchmark for 3D datasets under multiple indoor illuminance. MI3D collects point clouds under three distinct illuminance intensity ranges(1-5lux, 100-200lux, 400-500lux) that were not previously explored."/>
-  <meta property="og:url" content="https://jasper-kk.github.io/mi3d/"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>MI3D: An RGB-D and Point Cloud Benchmark for Indoor Scene Understanding under Multi-Illumination</title>
-  <link rel="icon" type="image/x-icon" href="static/images/logo.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="MI3D is an RGB-D and point cloud benchmark for indoor scene understanding under multiple illumination conditions, with 45,723 paired samples across 54 scenes.">
+  <meta property="og:title" content="MI3D — Multi-Illuminance Indoor 3D Benchmark">
+  <meta property="og:description" content="Explore paired RGB-D and point-cloud data under low, normal, and bright illumination.">
+  <meta property="og:url" content="https://jasper-kk.github.io/mi3d/">
+  <meta property="og:image" content="static/images/dataset-overview.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="MI3D, RGB-D, point cloud, multi-illuminance, indoor scene understanding, 3D vision, dataset">
+  <title>MI3D — Multi-Illuminance Indoor 3D Benchmark</title>
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <script type="module" src="static/js/model-viewer.min.js"></script>
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script defer src="static/js/index.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Semantic 2D-3D data under Multi-Illuminance for Indoor Scene Understanding</h1>
-          
-          <!-- 注释掉作者 -->
-          <!-- 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://jasper-kk.github.io/" target="_blank">Xikai Tang</a><sup><a href="#institution1">1</a>*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Chao Li</a><sup><a href="#institution1">2</a>*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">FangZheng Huang</a><sup><a href="#institution2">3</a>*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="FOURTH AUTHOR PERSONAL LINK" target="_blank">Dayan Ban</a><sup><a href="#institution2">4</a>*</sup>,
-            </span>
-          </div>
-          -->
-
-          <!-- 注释掉机构 -->
-          <!-- 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block" id="institution2">University of Waterloo <br></span>
-            <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-          </div>
-          -->
-
-
-
-                    <!-- 所有按钮区域 -->
-          <div class="publication-links is-flex is-justify-content-center is-flex-wrap-wrap mt-4">
-            <!-- ArXiv Paper PDF -->
-            <span class="link-block m-2">
-              <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fas fa-file-pdf"></i>
-                </span>
-                <span>Paper</span>
-              </a>
-            </span>
-          
-            <!-- Supplementary PDF -->
-            <span class="link-block m-2">
-              <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fas fa-file-pdf"></i>
-                </span>
-                <span>Supplementary</span>
-              </a>
-            </span>
-          
-          
-            <!-- Dataset Samples -->
-            <span class="link-block m-2">
-              <a href="https://pan.baidu.com/s/5VvEasLCdtciyUxzaqyOrXQ#list/path=%2F" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fas fa-database"></i>
-                </span>
-                <span>Dataset Samples</span>
-              </a>
-            </span>
-          </div>
-          
-          <!-- 数据集说明 -->
-          <div class="has-text-centered mt-2">
-            <p class="is-size-6 has-text-grey">
-              Due to the large size of the dataset, only sample data are provided here
-            </p>
-          </div>
-
-
-        </div>
-      </div>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="MI3D home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>MI3D</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#explore">3D Explorer</a>
+        <a href="#results">Results</a>
+      </nav>
+      <a class="nav-download" href="https://pan.baidu.com/s/5VvEasLCdtciyUxzaqyOrXQ#list/path=%2F" target="_blank" rel="noreferrer">
+        Get samples
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg>
+      </a>
     </div>
-  </div>
-</section>
+  </header>
 
-
-
-
-
-<!-- Teaser Image-->
-<section class="hero teaser">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <img src="static/images/Figure1new_2_compressed.pdf" alt="An overview of our method"/>
-            <h2 class="subtitle has-text-centered">
-                a. Dataset collection and annotation: Pipline for data collection and data annotation. MI3D including RGB, depth and point clouds,  all densely annotated under three illuminance intensity ranges: low (1–5 lux), normal (100–200 lux), and bright (400–500 lux). b. Estimated distribution of dataset. c. Vision model with Mi3D dataset. d. The performance of vision model and prediction sample and mIoU result for 3D data under multi-illuminance.
-            </h2>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="mono-label">RGB-D + POINT CLOUD BENCHMARK</p>
+          <h1 id="hero-title">Semantic 2D–3D data <span>under multi-illuminance.</span></h1>
+          <p class="hero-subtitle">For indoor scene understanding when lighting stops being constant.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#explore">
+              Explore in 3D
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
+            </a>
+            <a class="text-link" href="https://pan.baidu.com/s/5VvEasLCdtciyUxzaqyOrXQ#list/path=%2F" target="_blank" rel="noreferrer">
+              Dataset samples <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="sample-note">Sample data are provided due to the size of the full dataset.</p>
         </div>
-    </div>
-</section>
-<!-- End teaser Image -->
 
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-    <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-                <h2 class="title is-3">Abstract</h2>
-                <div class="content has-text-justified">
-                    <p>
-                        A major challenge in collecting 3D data is capturing it under uncontrolled multiilluminance in photon-limited scenes. Previous methods employed expensive LiDAR to mitigate illumination effects, often at the expense of real-world fidelity and model generalization. We
-propose MI3D, a novel benchmark for 3D indoor scene understanding under varying lighting conditions, capturing point clouds across three distinct and previously underexplored illuminance
-levels: 1-5 lux, 100-200 lux, and 400-500 lux. MI3D incorporates a dedicated Illuminance Control System (LCS) to standardize lighting conditions, enabling systematic evaluation of illumination
-effects on 3D data. It currently represents the largest indoor benchmark for point cloud classification and segmentation under multi-illuminance settings. The dataset utilizes three distinct nominal illuminance levels and contains 45,723 paired RGB-D and corresponding point-cloud samples. These were captured in 54 different scenes, showcasing a total of 92 distinct objects. Each
-scene was captured under three distinct illuminance conditions and four different height levels: two flat heights (1m and 1.5m) and two top heights (2m and 2.3m). Using this dataset, we have been able to train challenging state-of-the-art models tackling complex challenges. We believe that MI3D will advance 3D vision research. 
-                    </p>
-                </div>
+        <div class="hero-stage" aria-label="Interactive point cloud preview">
+          <div class="stage-head">
+            <span class="mono-label">LIVE POINT CLOUD</span>
+            <span class="stage-scene">493 / ASSEMBLY ROOM</span>
+          </div>
+          <div class="hero-canvas">
+            <div class="model-fallback" aria-hidden="true"><span>MI3D</span></div>
+            <model-viewer
+              id="hero-model"
+              src="static/videos/493-3-37-1-1-assemblyroom.glb"
+              poster="static/images/posters/assemblyroom-3.webp"
+              alt="Interactive assembly room point cloud under bright illumination"
+              camera-controls
+              disable-zoom
+              interaction-prompt="none"
+              orientation="0deg 270deg 90deg"
+              camera-orbit="0deg 90deg 85%"
+              min-camera-orbit="auto 90deg auto"
+              max-camera-orbit="auto 90deg auto"
+              auto-rotate
+              rotation-per-second="18deg"
+              exposure="1.5"
+              loading="eager">
+            </model-viewer>
+            <div class="lux-control" role="group" aria-label="Hero illumination level">
+              <button type="button" data-hero-level="1" aria-pressed="false"><span>LOW</span>1–5 lux</button>
+              <button type="button" data-hero-level="2" aria-pressed="false"><span>NORMAL</span>100–200 lux</button>
+              <button type="button" data-hero-level="3" aria-pressed="true"><span>BRIGHT</span>400–500 lux</button>
             </div>
-        </div>
-    </div>
-</section>
-<!-- End paper abstract -->
-
-    
-<section class="section" id="3d-visualization">
-  <div class="container">
-    <h2 id="3d-visualization" class="title is-3 has-text-centered">3D-visualization</h2>
-    <div class="columns">
-      
-      <!-- 第一列 -->
-      <div class="column">
-        <h3 class="title is-5 has-text-centered">lux 1</h3>
-        <div class="box">
-          <p class="has-text-centered">saloon</p>
-          <model-viewer src="static/videos/545-1-3-1-1-saloon.glb" camera-controls disable-zoom orientation="0deg 270deg 0deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
-        </div>
-        <div class="box">
-          <p class="has-text-centered">office</p>
-          <model-viewer src="static/videos/362-1-7-1-1-office.glb" camera-controls disable-zoom orientation="0deg 270deg 0deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
-        </div>
-        <div class="box">
-          <p class="has-text-centered">assemblyroom</p>
-          <model-viewer src="static/videos/493-1-37-1-1-assemblyroom.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+          </div>
+          <div class="stage-foot">
+            <span>Drag to orbit</span>
+            <button class="rotation-button" id="hero-rotation" type="button" aria-pressed="true">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg>
+              <span>Pause rotation</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- 第二列 -->
-      <div class="column">
-        <h3 class="title is-5 has-text-centered">lux 2</h3>
-        <div class="box">
-          <p class="has-text-centered">saloon</p>
-          <model-viewer src="static/videos/545-2-3-1-1-saloon.glb" camera-controls disable-zoom orientation="0deg 270deg 0deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+      <dl class="shell hero-stats" aria-label="Dataset summary">
+        <div><dt>Paired RGB-D / point clouds</dt><dd>45,723</dd></div>
+        <div><dt>Indoor scenes</dt><dd>54</dd></div>
+        <div><dt>Distinct objects</dt><dd>92</dd></div>
+        <div><dt>Illuminance conditions</dt><dd>3</dd></div>
+      </dl>
+    </section>
+
+    <section class="section overview" id="overview" aria-labelledby="overview-title">
+      <div class="shell">
+        <div class="section-intro">
+          <div>
+            <p class="mono-label">ABOUT THE DATASET</p>
+            <h2 id="overview-title">Lighting is the variable.<br>Not the scene.</h2>
+          </div>
+          <div class="abstract-copy">
+            <p>A major challenge in collecting 3D data is capturing it under uncontrolled multi-illuminance in photon-limited scenes. Previous methods employed expensive LiDAR to mitigate illumination effects, often at the expense of real-world fidelity and model generalization.</p>
+            <p>MI3D captures point clouds across three previously underexplored illuminance levels using a dedicated Lighting Control System (LCS). Each scene is captured under all three lighting conditions and at four height levels: 1 m, 1.5 m, 2 m, and 2.3 m.</p>
+            <p>The dataset contains 45,723 paired RGB-D and point-cloud samples from 54 scenes and 92 distinct objects, supporting systematic evaluation of classification and segmentation under changing illumination.</p>
+          </div>
         </div>
-        <div class="box">
-          <p class="has-text-centered">office</p>
-          <model-viewer src="static/videos/362-2-7-1-1-office.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+
+        <div class="illumination-spec" aria-label="Illuminance ranges">
+          <div><span class="spec-index">01</span><strong>Low</strong><span>1–5 lux</span></div>
+          <div><span class="spec-index">02</span><strong>Normal</strong><span>100–200 lux</span></div>
+          <div><span class="spec-index">03</span><strong>Bright</strong><span>400–500 lux</span></div>
         </div>
-        <div class="box">
-          <p class="has-text-centered">assemblyroom</p>
-          <model-viewer src="static/videos/493-2-37-1-1-assemblyroom.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+
+        <figure class="overview-figure">
+          <button class="image-zoom overview-image" type="button" data-full-image="static/images/dataset-overview.webp" data-caption="MI3D dataset collection, annotation, characterization, and evaluation overview." aria-label="Enlarge MI3D dataset overview">
+            <img src="static/images/dataset-overview.webp" alt="Overview of MI3D data collection, annotation, dataset distribution, vision models, and prediction results" width="2600" height="3361" loading="lazy">
+            <span class="zoom-hint">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v3M10 3h3v3M6 13H3v-3M10 13h3v-3"/></svg>
+              Inspect full figure
+            </span>
+          </button>
+          <figcaption><strong>Figure 1.</strong> Dataset collection and annotation pipeline, estimated dataset distribution, vision models, and prediction results under multi-illuminance. MI3D includes RGB, depth, and densely annotated point clouds across low, normal, and bright lighting.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section explorer-section" id="explore" aria-labelledby="explorer-title">
+      <div class="shell">
+        <div class="section-intro explorer-intro">
+          <div>
+            <p class="mono-label">INTERACTIVE 3D EXPLORER</p>
+            <h2 id="explorer-title">Same scene.<br>Different light.</h2>
+          </div>
+          <p>Select one of three indoor scenes, then switch illumination to inspect all nine original point-cloud models. Drag the model to change your viewpoint.</p>
+        </div>
+
+        <div class="scene-switch" role="group" aria-label="Choose a scene">
+          <button type="button" data-scene="saloon" aria-pressed="true">Saloon</button>
+          <button type="button" data-scene="office" aria-pressed="false">Office</button>
+          <button type="button" data-scene="assemblyroom" aria-pressed="false">Assembly room</button>
+        </div>
+
+        <div class="explorer-layout">
+          <div class="explorer-main">
+            <div class="viewer-meta">
+              <div><span class="mono-label" id="current-scene">SALOON / SCENE 545</span><strong id="current-lux">Low · 1–5 lux</strong></div>
+              <span class="model-status" id="model-status" role="status">Loading model</span>
+            </div>
+            <div class="main-canvas">
+              <div class="model-fallback" aria-hidden="true"><span>MI3D</span></div>
+              <model-viewer
+                id="main-model"
+                src="static/videos/545-1-3-1-1-saloon.glb"
+                poster="static/images/posters/saloon-1.webp"
+                alt="Interactive saloon point cloud under low illumination"
+                camera-controls
+                interaction-prompt="none"
+                orientation="0deg 270deg 0deg"
+                camera-orbit="0deg 90deg 85%"
+                min-camera-orbit="auto 90deg auto"
+                max-camera-orbit="auto 90deg auto"
+                auto-rotate
+                rotation-per-second="24deg"
+                loading="lazy">
+              </model-viewer>
+              <div class="viewer-tools">
+                <button class="rotation-button" id="main-rotation" type="button" aria-pressed="true">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg>
+                  <span>Pause rotation</span>
+                </button>
+                <button id="reset-camera" type="button">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 7a5 5 0 1 1 1 5M3 3v4h4"/></svg>
+                  Reset view
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lux-rail" role="group" aria-label="Choose an illumination level">
+            <button type="button" class="lux-thumb" data-level="1" aria-pressed="true">
+              <span class="thumb-image"><img src="static/images/posters/saloon-1.webp" alt="" width="320" height="200" loading="lazy"></span>
+              <span class="thumb-copy"><span>01 / LOW</span><strong>1–5 lux</strong></span>
+            </button>
+            <button type="button" class="lux-thumb" data-level="2" aria-pressed="false">
+              <span class="thumb-image"><img src="static/images/posters/saloon-2.webp" alt="" width="320" height="200" loading="lazy"></span>
+              <span class="thumb-copy"><span>02 / NORMAL</span><strong>100–200 lux</strong></span>
+            </button>
+            <button type="button" class="lux-thumb" data-level="3" aria-pressed="false">
+              <span class="thumb-image"><img src="static/images/posters/saloon-3.webp" alt="" width="320" height="200" loading="lazy"></span>
+              <span class="thumb-copy"><span>03 / BRIGHT</span><strong>400–500 lux</strong></span>
+            </button>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- 第三列 -->
-      <div class="column">
-        <h3 class="title is-5 has-text-centered">lux 3</h3>
-        <div class="box">
-          <p class="has-text-centered">saloon</p>
-          <model-viewer src="static/videos/545-3-3-1-1-saloon.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" exposure="1.5" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+    <section class="section results-section" id="results" aria-labelledby="results-title">
+      <div class="shell">
+        <div class="section-intro results-intro">
+          <div>
+            <p class="mono-label">EVALUATION &amp; VISUALIZATIONS</p>
+            <h2 id="results-title">Results,<br>under every light.</h2>
+          </div>
+          <p>Compare semantic segmentation across five point-cloud models, varying illuminance levels, and D435i and ZED cameras.</p>
         </div>
-        <div class="box">
-          <p class="has-text-centered">office</p>
-          <model-viewer src="static/videos/362-3-7-1-1-office.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" exposure="1.5" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
+
+        <div class="results-gallery">
+          <div class="result-main">
+            <button class="image-zoom result-image-button" id="result-zoom" type="button" aria-label="Enlarge selected result figure">
+              <img id="result-image" src="static/images/table2.png" alt="Semantic segmentation comparison across five point cloud models, illumination conditions, and D435i and ZED cameras">
+              <span class="zoom-hint">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3H3v3M10 3h3v3M6 13H3v-3M10 13h3v-3"/></svg>
+                Open full size
+              </span>
+            </button>
+          </div>
+          <div class="result-rail" role="group" aria-label="Choose a result figure">
+            <button type="button" class="result-thumb" data-result="0" aria-pressed="true">
+              <span class="result-thumb-image"><img src="static/images/table2.png" alt="" loading="lazy"></span>
+              <span><span>FIGURE A</span><strong>Model comparison</strong></span>
+            </button>
+            <button type="button" class="result-thumb" data-result="1" aria-pressed="false">
+              <span class="result-thumb-image"><img src="static/images/Figure10new_01.png" alt="" loading="lazy"></span>
+              <span><span>FIGURE B</span><strong>IoU histograms</strong></span>
+            </button>
+            <button type="button" class="result-thumb" data-result="2" aria-pressed="false">
+              <span class="result-thumb-image"><img src="static/images/dataset-overview.webp" alt="" loading="lazy"></span>
+              <span><span>FIGURE 1</span><strong>Dataset overview</strong></span>
+            </button>
+          </div>
         </div>
-        <div class="box">
-          <p class="has-text-centered">assemblyroom</p>
-          <model-viewer src="static/videos/493-3-37-1-1-assemblyroom.glb" camera-controls disable-zoom orientation="0deg 270deg 90deg" camera-orbit="0deg 90deg auto" min-camera-orbit="auto 90deg auto" max-camera-orbit="auto 90deg auto" exposure="1.5" auto-rotate rotation-per-second="30deg" style="width:100%; height:300px; display: flex;"></model-viewer>
-        </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Extra Figures Section -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Comparison of semantic segmentation results on the MI3D dataset across five different point cloud models under varying illuminance levels using D435i and ZED cameras.</h2>
-    <h3 class="subtitle has-text-centered">Additional Visualizations from MI3D</h3>
-
-    <!-- First figure -->
-    <div class="box has-text-centered">
-      <figure class="image">
-        <img src="static/images/table2.png" alt="Example 1 from MI3D dataset" style="width:100%; height:auto;">
-      </figure>
-      <p class="mt-2"><strong>Figure A.</strong> Comparison of semantic segmentation results on the MI3D dataset across five different point cloud models under varying illuminance levels using D435i and ZED cameras. Blue cells = better with D435i, Green cells = better with ZED. Values in parentheses indicate performance change compared to training condition. Each light condition shows OA(%) and mIoU(%) for both cameras. We select PointNet, PointNet++, DGCNN, PointCNN, and Point Transformer as baselines since they represent key milestones in point cloud learning. PointNet and PointNet++ establish the foundation for direct point set processing and hierarchical feature extraction, DGCNN and PointCNN focus on local neighborhood modeling, and Point Transformer introduces attention-based global context learning. These models cover the major paradigms in point cloud analysis and provide representative benchmarks for evaluation..</p>
-    </div>
-
-    <!-- Second figure -->
-    <div class="box has-text-centered mt-5">
-      <figure class="image">
-        <img src="static/images/Figure10new_01.png" alt="Example 2 from MI3D dataset" style="width:100%; height:auto;">
-      </figure>
-      <p class="mt-2"><strong>Figure B.</strong> Intersection over Union (IoU 0-1) histograms for part object classes at three illuminance intensities.}  We choose low illuminance intensities (1-5 lux) and bright illuminance intensities (400-500 lux) as a comparison experiment, data with illuminance intensities of 100-200 lux as the baseline test on pointnet in D435i and ZED camera.</p>
-    </div>
-  </div>
-</section>
-
-
-
-  
-
-
-
-<!-- BibTex citation -->
-<!-- BibTeX citation -->
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <div class="box">
-      <button class="button is-small is-link is-light is-pulled-right" onclick="copyBibTeX()">📋 Copy</button>
-      <pre><code id="bibtex-entry" class="language-bibtex">@inproceedings{anonymous2025semantic,
-  title     = {Semantic 2D-3D Data under Multi-Illuminance for Indoor Scene Understanding},
-  author    = {Anonymous},
-  booktitle = {Proceedings of the 8th Chinese Conference on Pattern Recognition and Computer Vision (PRCV)},
-  year      = {2025},
-  note      = {Under review}
-}</code></pre>
-    </div>
-    <p id="copy-confirmation" class="has-text-success is-hidden">✅ Copied to clipboard!</p>
-  </div>
-</section>
-
-<script>
-  function copyBibTeX() {
-    const code = document.getElementById("bibtex-entry").innerText;
-    navigator.clipboard.writeText(code).then(() => {
-      const msg = document.getElementById("copy-confirmation");
-      msg.classList.remove("is-hidden");
-      setTimeout(() => msg.classList.add("is-hidden"), 2000);
-    });
-  }
-</script> -->
-
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+        <div class="result-caption" aria-live="polite">
+          <strong id="result-label">Figure A.</strong>
+          <p id="result-caption">Comparison of semantic segmentation results on the MI3D dataset across five different point cloud models under varying illuminance levels using D435i and ZED cameras. Blue cells indicate better performance with D435i; green cells indicate better performance with ZED. Values in parentheses show performance change compared to the training condition. Each light condition reports OA (%) and mIoU (%) for both cameras. PointNet, PointNet++, DGCNN, PointCNN, and Point Transformer cover direct point-set processing, hierarchical feature extraction, local neighborhood modeling, and attention-based global context learning.</p>
         </div>
       </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-top">
+        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span>MI3D</span></a>
+        <p>Multi-illuminance data for more robust 3D vision.</p>
+        <a class="text-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+      <div class="footer-bottom">
+        <p>Built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a>, adapted from the <a href="https://nerfies.github.io" target="_blank" rel="noreferrer">Nerfies</a> project page.</p>
+        <p>Licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0</a>.</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  <dialog class="image-dialog" id="image-dialog" aria-label="Full-size figure viewer">
+    <div class="dialog-bar">
+      <span class="mono-label">MI3D / FIGURE VIEWER</span>
+      <button id="dialog-close" type="button" aria-label="Close figure viewer">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"/></svg>
+        Close
+      </button>
+    </div>
+    <div class="dialog-canvas"><img id="dialog-image" src="static/images/dataset-overview.webp" alt=""></div>
+    <p id="dialog-caption"></p>
+  </dialog>
+</body>
+</html>
